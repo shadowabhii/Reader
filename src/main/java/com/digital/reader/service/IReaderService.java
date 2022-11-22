@@ -9,7 +9,7 @@ import com.digital.reader.model.ReaderBookBuy;
 public interface IReaderService {
 	
 	Integer buyBook(ReaderBookBuy readerBookBuy);
-	public List<ReaderBookBuy> readBook(String readerName,String readerEmailId);
+	public List<ReaderBookBuy> readBook(Integer rId);
 	public List<ReaderBookBuy> history(String readerEmailId);
 	public List<ReaderBookBuy> getInvoice(String paymentid);
 

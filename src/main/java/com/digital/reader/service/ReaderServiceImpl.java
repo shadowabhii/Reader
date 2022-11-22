@@ -26,10 +26,9 @@ public class ReaderServiceImpl implements IReaderService {
 	}
 
 	@Override
-	public List<ReaderBookBuy> readBook(String readerName, String readerEmailId) {
+	public List<ReaderBookBuy> readBook(Integer rId) {
 		
-	List<ReaderBookBuy> getBook=	readerRepository.findAll().stream().filter(e-> (e.getReaderName().equalsIgnoreCase(readerName))
-				&&(e.getReaderEmailId().equalsIgnoreCase(readerEmailId))).collect(Collectors.toList());
+	List<ReaderBookBuy> getBook=	readerRepository.findAll().stream().filter(e-> (e.getrId()==rId)).collect(Collectors.toList());
 		
 		
 		

@@ -16,6 +16,7 @@ public class ReaderBookBuy {
 	private String readerEmailId;
 	private int bId;
 	private double price;
+	private int rId;
 	public int getpId() {
 		return pId;
 	}
@@ -52,7 +53,14 @@ public class ReaderBookBuy {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public ReaderBookBuy(int pId, String paymentid, String readerName, String readerEmailId, int bId, double price) {
+	public int getrId() {
+		return rId;
+	}
+	public void setrId(int rId) {
+		this.rId = rId;
+	}
+	public ReaderBookBuy(int pId, String paymentid, String readerName, String readerEmailId, int bId, double price,
+			int rId) {
 		super();
 		this.pId = pId;
 		this.paymentid = paymentid;
@@ -60,6 +68,7 @@ public class ReaderBookBuy {
 		this.readerEmailId = readerEmailId;
 		this.bId = bId;
 		this.price = price;
+		this.rId = rId;
 	}
 	public ReaderBookBuy() {
 		super();
@@ -68,8 +77,10 @@ public class ReaderBookBuy {
 	@Override
 	public String toString() {
 		return "ReaderBookBuy [pId=" + pId + ", paymentid=" + paymentid + ", readerName=" + readerName
-				+ ", readerEmailId=" + readerEmailId + ", bId=" + bId + ", price=" + price + "]";
+				+ ", readerEmailId=" + readerEmailId + ", bId=" + bId + ", price=" + price + ", rId=" + rId + "]";
 	}
+	
+	
 	
 	
 	

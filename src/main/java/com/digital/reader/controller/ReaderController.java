@@ -147,11 +147,11 @@ public class ReaderController {
 	}
 
 
-	@GetMapping("/reader/history/{readerEmailId}")
-	public List<ReaderBookBuy> getReaderHistory(@PathVariable String readerEmailId) {
+	@GetMapping("/reader/history/{rId}")
+	public List<ReaderBookBuy> getReaderHistory(@PathVariable Integer rId) {
 
 
-		return readerService.history(readerEmailId);
+		return readerService.readBook(rId);
 
 	}
 	
@@ -164,14 +164,13 @@ public class ReaderController {
 
 	}
 	
-	@GetMapping("/reader/purchasedbook/{readerName}/{readerEmailId}")
-	public List<Optional<Book>> getReaderBook(@PathVariable("readerName") String readerName,
-			@PathVariable("readerEmailId") String readerEmailId) {
+	@GetMapping("/reader/purchasedbook/{rId}")
+	public List<Optional<Book>> getReaderBook(@PathVariable("rId") Integer rId) {
 		List<Optional<Book>> book = new ArrayList<>();
 		
 		System.out.println("purchased");
 		
-		List<ReaderBookBuy> readingBook = readerService.readBook(readerName, readerEmailId);
+		List<ReaderBookBuy> readingBook = readerService.readBook(rId);
 		for (int i = 0; i < readingBook.size(); i++) {
 
 			Optional<Book> read = getBookById((readingBook.get(i).getbId()));
