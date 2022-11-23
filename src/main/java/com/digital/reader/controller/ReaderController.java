@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +29,7 @@ import com.digital.reader.services.signup.IReaderSignupService;
 public class ReaderController {
 
 	@Autowired
-	RestTemplate restTemplate;
+		private RestTemplate restTemplate;
 
 	@Autowired
 	private IReaderSignupService readerSignupService;
@@ -71,9 +72,9 @@ public class ReaderController {
 		System.out.println("inside reader");
 		// code for linking 2 microservice where record list will be set to Book
 
-		Optional<Book> book = this.restTemplate.getForObject("http://localhost:8084/bookbyid/" + i, Optional.class);
+		//Optional<Book> book = this.restTemplate.getForObject("http://localhost:8084/bookbyid/" + i, Optional.class);
 		
-
+		Optional<Book> book = this.restTemplate.getForObject("http://Author.Service//bookbyid/" + i, Optional.class);
 		return book;
 	}
 
